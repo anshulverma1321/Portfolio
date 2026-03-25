@@ -31,9 +31,13 @@ export default function setSplitText() {
       linesClass: "split-line",
     });
 
-    para.anim = gsap.fromTo(
-      para.split.words,
-      { autoAlpha: 0, y: 80 },
+    const words = para.split?.words;
+
+if (!words) return;
+
+para.anim = gsap.fromTo(
+  words,
+  { autoAlpha: 0, y: 80 },
       {
         autoAlpha: 1,
         scrollTrigger: {
@@ -57,8 +61,12 @@ export default function setSplitText() {
       type: "chars,lines",
       linesClass: "split-line",
     });
-    title.anim = gsap.fromTo(
-      title.split.chars,
+ const chars = title.split?.chars;
+
+if (!chars) return;
+
+title.anim = gsap.fromTo(
+  chars,
       { autoAlpha: 0, y: 80, rotate: 10 },
       {
         autoAlpha: 1,
